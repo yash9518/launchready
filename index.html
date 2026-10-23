@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LaunchReady — packaging artwork check</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='3' fill='none' stroke='%23E6007E' stroke-width='2.5' stroke-dasharray='5 3'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11' fill='none' stroke='%231B2230' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/" aria-label="LaunchReady home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="3" class="brand-die"/><path d="M9 16.5l4.5 4.5L23 11" class="brand-tick"/></svg>
+    <span>LaunchReady</span>
+  </a>
+  <span class="bar-sub">Is this packaging artwork ready to print?</span>
+  <div class="bar-right">
+    <span id="ai-status" class="ai-pill" tabindex="0"></span>
+    <button id="btn-new" class="btn ghost" hidden>New check</button>
+  </div>
+</header>
+
+<main id="app">
+  <!-- 1. Choose what to check -->
+  <section id="setup" class="setup" aria-labelledby="setup-title">
+    <div class="setup-intro">
+      <h1 id="setup-title">Check an artwork against its rules before it goes to print</h1>
+      <p>LaunchReady reads the print file, the rulebook and the approved product data, then checks every rule. Each finding shows the rule it comes from and the exact place on the artwork. It reports a definite problem only when code can prove it. Anything uncertain goes to a person.</p>
+    </div>
+
+    <div class="setup-grid">
+      <div class="samples">
+        <h2>Start from a sample</h2>
+        <div id="sample-list" class="sample-list" role="list"></div>
+      </div>
+
+      <form id="check-form" class="upload" autocomplete="off">
+        <h2>Or upload your own files</h2>
+        <label class="drop" data-for="artwork">
+          <input type="file" name="artwork" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.webp,.bmp">
+          <span class="drop-title">Artwork <em>required</em></span>
+          <span class="drop-file" data-empty="Print PDF, or a photo or scan of the label">Print PDF, or a photo or scan of the label</span>
+        </label>
+        <label class="drop" data-for="rulebook">
+          <input type="file" name="rulebook" accept=".md,.txt,.pdf,.docx,.yaml,.yml,.json">
+          <span class="drop-title">Rulebook</span>
+          <span class="drop-file" data-empty="Company rulebook or regulation text (PDF, Word, text)">Company rulebook or regulation text (PDF, Word, text)</span>
+        </label>
+        <div class="field-inline">
+          <label for="rulebook-select">Built-in rulebook</label>
+          <select id="rulebook-select" name="rulebook_name"></select>
+        </div>
+        <label class="drop" data-for="approved">
+          <input type="file" name="approved" accept=".xlsx,.xlsm,.csv,.json,.pdf,.docx,.txt,.md">
+          <span class="drop-title">Approved product data</span>
+          <span class="drop-file" data-empty="Content sheet or spec (Excel, CSV, JSON, PDF, Word)">Content sheet or spec (Excel, CSV, JSON, PDF, Word)</span>
+        </label>
+        <div class="field-inline">
+          <label for="as-of">Check rules in force on</label>
+          <input id="as-of" name="as_of" type="date">
+        </div>
+        <p id="form-error" class="form-error" role="alert" hidden></p>
+        <button id="btn-run" type="submit" class="btn primary">Run check</button>
+        <p class="hint" id="selected-hint">No sample selected — upload an artwork to start.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 2. Progress -->
+  <section id="progress" class="progress" hidden aria-live="polite">
+    <div class="stamp checking">Checking</div>
+    <p id="progress-stage" class="progress-stage">Starting…</p>
+    <ol id="progress-steps" class="progress-steps"></ol>
+    <p id="progress-time" class="hint"></p>
+  </section>
+
+  <!-- 3. Result -->
+  <section id="result" class="result" hidden>
+    <aside class="side" aria-label="Verdict and findings">
+      <div id="verdict" class="verdict"></div>
+      <div id="source-issues"></div>
+      <div class="tabs" role="tablist">
+        <button role="tab" class="tab" data-tab="findings" aria-selected="true">Findings</button>
+        <button role="tab" class="tab" data-tab="rules" aria-selected="false">Rules</button>
+        <button role="tab" class="tab" data-tab="data" aria-selected="false">What was read</button>
+        <button role="tab" class="tab" data-tab="how" aria-selected="false">How it was checked</button>
+      </div>
+      <div id="tab-findings" class="tabpanel" role="tabpanel"></div>
+      <div id="tab-rules" class="tabpanel" role="tabpanel" hidden></div>
+      <div id="tab-data" class="tabpanel" role="tabpanel" hidden></div>
+      <div id="tab-how" class="tabpanel" role="tabpanel" hidden></div>
+    </aside>
+
+    <section class="viewer" aria-label="Artwork">
+      <div class="viewer-tools">
+        <div class="tool-group">
+          <button class="tool" id="z-out" title="Zoom out" aria-label="Zoom out">−</button>
+          <button class="tool" id="z-fit" title="Fit the artwork">Fit</button>
+          <button class="tool" id="z-in" title="Zoom in" aria-label="Zoom in">+</button>
+        </div>
+        <div class="tool-group">
+          <label class="toggle"><input type="checkbox" id="t-pins" checked> Problems</label>
+          <label class="toggle"><input type="checkbox" id="t-panels"> Panels</label>
+          <label class="toggle"><input type="checkbox" id="t-hidden"> Non-printing text</label>
+        </div>
+        <select id="page-select" class="tool" hidden></select>
+        <span id="viewer-file" class="viewer-file"></span>
+      </div>
+      <div id="stage" class="stage" tabindex="0" aria-label="Artwork view. Drag to move, scroll to zoom.">
+        <div id="canvas" class="canvas">
+          <img id="page-img" alt="Artwork page" draggable="false">
+          <svg id="overlay" class="overlay" aria-hidden="true"></svg>
+        </div>
+        <div id="pins" class="pins"></div>
+      </div>
+      <div id="viewer-caption" class="viewer-caption"></div>
+    </section>
+  </section>
+</main>
+
+<template id="tpl-finding">
+  <article class="finding">
+    <button class="finding-head" aria-expanded="false">
+      <span class="pin-num"></span>
+      <span class="finding-title"></span>
+      <span class="finding-meta"></span>
+    </button>
+    <div class="finding-body" hidden></div>
+  </article>
+</template>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
