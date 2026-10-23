@@ -1,0 +1,2176 @@
+{
+  "summary": {
+    "pdf": {
+      "artworks": 28,
+      "defects": 26,
+      "defects_flagged": 26,
+      "defects_definite_fail": 26,
+      "expected_rule_hits": 33,
+      "rule_hits_fail": 33,
+      "rule_hits_review": 0,
+      "rule_hits_missed": 0,
+      "false_alarms": 0,
+      "false_alarms_on_clean": 0,
+      "avg_review_items": 0.0,
+      "avg_seconds": 0.3
+    },
+    "png": {
+      "artworks": 28,
+      "defects": 26,
+      "defects_flagged": 26,
+      "defects_definite_fail": 20,
+      "expected_rule_hits": 33,
+      "rule_hits_fail": 27,
+      "rule_hits_review": 6,
+      "rule_hits_missed": 0,
+      "false_alarms": 0,
+      "false_alarms_on_clean": 0,
+      "avg_review_items": 2.79,
+      "avg_seconds": 4.3
+    },
+    "photo": {
+      "artworks": 28,
+      "defects": 26,
+      "defects_flagged": 26,
+      "defects_definite_fail": 21,
+      "expected_rule_hits": 33,
+      "rule_hits_fail": 28,
+      "rule_hits_review": 5,
+      "rule_hits_missed": 0,
+      "false_alarms": 0,
+      "false_alarms_on_clean": 0,
+      "avg_review_items": 3.93,
+      "avg_seconds": 8.1
+    }
+  },
+  "rows": [
+    {
+      "id": "CLEAN_cookies",
+      "form": "pdf",
+      "desc": "clean cookies artwork",
+      "expected": [],
+      "fail": [],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.4,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "CLEAN_cookies",
+      "form": "png",
+      "desc": "clean cookies artwork",
+      "expected": [],
+      "fail": [],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 4.5,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "CLEAN_cookies",
+      "form": "photo",
+      "desc": "clean cookies artwork",
+      "expected": [],
+      "fail": [],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 7.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "CLEAN_peanuts",
+      "form": "pdf",
+      "desc": "clean peanuts artwork",
+      "expected": [],
+      "fail": [],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "CLEAN_peanuts",
+      "form": "png",
+      "desc": "clean peanuts artwork",
+      "expected": [],
+      "fail": [],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 2.5,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "CLEAN_peanuts",
+      "form": "photo",
+      "desc": "clean peanuts artwork",
+      "expected": [],
+      "fail": [],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 5.9,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D01_name_typo",
+      "form": "pdf",
+      "desc": "Product name misspelt on front",
+      "expected": [
+        "R01"
+      ],
+      "fail": [
+        "R01"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D01_name_typo",
+      "form": "png",
+      "desc": "Product name misspelt on front",
+      "expected": [
+        "R01"
+      ],
+      "fail": [],
+      "review": [
+        "R01",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 2.6,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D01_name_typo",
+      "form": "photo",
+      "desc": "Product name misspelt on front",
+      "expected": [
+        "R01"
+      ],
+      "fail": [],
+      "review": [
+        "R01",
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 7.0,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D02_front_qty_mismatch",
+      "form": "pdf",
+      "desc": "Front net quantity 250 g vs approved 200 g",
+      "expected": [
+        "R03",
+        "R04"
+      ],
+      "fail": [
+        "R03",
+        "R04"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D02_front_qty_mismatch",
+      "form": "png",
+      "desc": "Front net quantity 250 g vs approved 200 g",
+      "expected": [
+        "R03",
+        "R04"
+      ],
+      "fail": [
+        "R03"
+      ],
+      "review": [
+        "R04",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.0,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D02_front_qty_mismatch",
+      "form": "photo",
+      "desc": "Front net quantity 250 g vs approved 200 g",
+      "expected": [
+        "R03",
+        "R04"
+      ],
+      "fail": [
+        "R03",
+        "R04"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24",
+        "R26"
+      ],
+      "seconds": 7.1,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D03_front_qty_missing",
+      "form": "pdf",
+      "desc": "Net quantity missing from front panel",
+      "expected": [
+        "R02"
+      ],
+      "fail": [
+        "R02"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D03_front_qty_missing",
+      "form": "png",
+      "desc": "Net quantity missing from front panel",
+      "expected": [
+        "R02"
+      ],
+      "fail": [
+        "R02"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.6,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D03_front_qty_missing",
+      "form": "photo",
+      "desc": "Net quantity missing from front panel",
+      "expected": [
+        "R02"
+      ],
+      "fail": [
+        "R02"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 6.5,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D04_front_qty_too_small",
+      "form": "pdf",
+      "desc": "Net quantity numerals too small",
+      "expected": [
+        "R05"
+      ],
+      "fail": [
+        "R05"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D04_front_qty_too_small",
+      "form": "png",
+      "desc": "Net quantity numerals too small",
+      "expected": [
+        "R05"
+      ],
+      "fail": [
+        "R05"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 4.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D04_front_qty_too_small",
+      "form": "photo",
+      "desc": "Net quantity numerals too small",
+      "expected": [
+        "R05"
+      ],
+      "fail": [],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 6.8,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D05_mrp_no_tax_text",
+      "form": "pdf",
+      "desc": "MRP without 'inclusive of all taxes'",
+      "expected": [
+        "R06"
+      ],
+      "fail": [
+        "R06"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D05_mrp_no_tax_text",
+      "form": "png",
+      "desc": "MRP without 'inclusive of all taxes'",
+      "expected": [
+        "R06"
+      ],
+      "fail": [],
+      "review": [
+        "R06",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 10.6,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D05_mrp_no_tax_text",
+      "form": "photo",
+      "desc": "MRP without 'inclusive of all taxes'",
+      "expected": [
+        "R06"
+      ],
+      "fail": [
+        "R06"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24",
+        "R26"
+      ],
+      "seconds": 15.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D06_mrp_mismatch",
+      "form": "pdf",
+      "desc": "MRP 65 vs approved 60",
+      "expected": [
+        "R07"
+      ],
+      "fail": [
+        "R07"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D06_mrp_mismatch",
+      "form": "png",
+      "desc": "MRP 65 vs approved 60",
+      "expected": [
+        "R07"
+      ],
+      "fail": [
+        "R07"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.1,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D06_mrp_mismatch",
+      "form": "photo",
+      "desc": "MRP 65 vs approved 60",
+      "expected": [
+        "R07"
+      ],
+      "fail": [
+        "R07"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 7.1,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D07_licence_13_digits",
+      "form": "pdf",
+      "desc": "FSSAI licence has 13 digits",
+      "expected": [
+        "R08",
+        "R09"
+      ],
+      "fail": [
+        "R08",
+        "R09"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D07_licence_13_digits",
+      "form": "png",
+      "desc": "FSSAI licence has 13 digits",
+      "expected": [
+        "R08",
+        "R09"
+      ],
+      "fail": [
+        "R08",
+        "R09"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 2.9,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D07_licence_13_digits",
+      "form": "photo",
+      "desc": "FSSAI licence has 13 digits",
+      "expected": [
+        "R08",
+        "R09"
+      ],
+      "fail": [
+        "R08",
+        "R09"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 6.4,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D08_licence_wrong_digit",
+      "form": "pdf",
+      "desc": "FSSAI licence differs from approved",
+      "expected": [
+        "R09"
+      ],
+      "fail": [
+        "R09"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D08_licence_wrong_digit",
+      "form": "png",
+      "desc": "FSSAI licence differs from approved",
+      "expected": [
+        "R09"
+      ],
+      "fail": [
+        "R09"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.0,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D08_licence_wrong_digit",
+      "form": "photo",
+      "desc": "FSSAI licence differs from approved",
+      "expected": [
+        "R09"
+      ],
+      "fail": [
+        "R09"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 6.5,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D09_veg_mark_missing",
+      "form": "pdf",
+      "desc": "Veg mark missing",
+      "expected": [
+        "R10"
+      ],
+      "fail": [
+        "R10"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D09_veg_mark_missing",
+      "form": "png",
+      "desc": "Veg mark missing",
+      "expected": [
+        "R10"
+      ],
+      "fail": [
+        "R10"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.4,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D09_veg_mark_missing",
+      "form": "photo",
+      "desc": "Veg mark missing",
+      "expected": [
+        "R10"
+      ],
+      "fail": [
+        "R10"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 7.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D10_nonveg_mark_on_veg",
+      "form": "pdf",
+      "desc": "Non-veg mark on a veg product",
+      "expected": [
+        "R10"
+      ],
+      "fail": [
+        "R10"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D10_nonveg_mark_on_veg",
+      "form": "png",
+      "desc": "Non-veg mark on a veg product",
+      "expected": [
+        "R10"
+      ],
+      "fail": [
+        "R10"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.1,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D10_nonveg_mark_on_veg",
+      "form": "photo",
+      "desc": "Non-veg mark on a veg product",
+      "expected": [
+        "R10"
+      ],
+      "fail": [
+        "R10"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24",
+        "R26"
+      ],
+      "seconds": 7.8,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D11_ingredient_pct_changed",
+      "form": "pdf",
+      "desc": "Ingredient percentage changed",
+      "expected": [
+        "R11"
+      ],
+      "fail": [
+        "R11"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D11_ingredient_pct_changed",
+      "form": "png",
+      "desc": "Ingredient percentage changed",
+      "expected": [
+        "R11"
+      ],
+      "fail": [
+        "R11"
+      ],
+      "review": [
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.0,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D11_ingredient_pct_changed",
+      "form": "photo",
+      "desc": "Ingredient percentage changed",
+      "expected": [
+        "R11"
+      ],
+      "fail": [
+        "R11"
+      ],
+      "review": [
+        "R05",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 6.9,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D12_ingredient_missing",
+      "form": "pdf",
+      "desc": "Ingredient missing from list",
+      "expected": [
+        "R11"
+      ],
+      "fail": [
+        "R11"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D12_ingredient_missing",
+      "form": "png",
+      "desc": "Ingredient missing from list",
+      "expected": [
+        "R11"
+      ],
+      "fail": [
+        "R11"
+      ],
+      "review": [
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 7.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D12_ingredient_missing",
+      "form": "photo",
+      "desc": "Ingredient missing from list",
+      "expected": [
+        "R11"
+      ],
+      "fail": [
+        "R11"
+      ],
+      "review": [
+        "R05",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 13.7,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D13_allergen_soy_missing",
+      "form": "pdf",
+      "desc": "Soy missing from allergen declaration",
+      "expected": [
+        "R12"
+      ],
+      "fail": [
+        "R12"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D13_allergen_soy_missing",
+      "form": "png",
+      "desc": "Soy missing from allergen declaration",
+      "expected": [
+        "R12"
+      ],
+      "fail": [
+        "R12"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.6,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D13_allergen_soy_missing",
+      "form": "photo",
+      "desc": "Soy missing from allergen declaration",
+      "expected": [
+        "R12"
+      ],
+      "fail": [],
+      "review": [
+        "R05",
+        "R11",
+        "R12",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 6.6,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D14_allergen_statement_missing",
+      "form": "pdf",
+      "desc": "Allergen declaration missing",
+      "expected": [
+        "R12"
+      ],
+      "fail": [
+        "R12"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D14_allergen_statement_missing",
+      "form": "png",
+      "desc": "Allergen declaration missing",
+      "expected": [
+        "R12"
+      ],
+      "fail": [],
+      "review": [
+        "R11",
+        "R12",
+        "R17",
+        "R26"
+      ],
+      "seconds": 9.0,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D14_allergen_statement_missing",
+      "form": "photo",
+      "desc": "Allergen declaration missing",
+      "expected": [
+        "R12"
+      ],
+      "fail": [
+        "R12"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R17",
+        "R26"
+      ],
+      "seconds": 12.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D15_allergen_not_bold",
+      "form": "pdf",
+      "desc": "Allergen declaration not bold",
+      "expected": [
+        "R13"
+      ],
+      "fail": [
+        "R13"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D15_allergen_not_bold",
+      "form": "png",
+      "desc": "Allergen declaration not bold",
+      "expected": [
+        "R13"
+      ],
+      "fail": [],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.0,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D15_allergen_not_bold",
+      "form": "photo",
+      "desc": "Allergen declaration not bold",
+      "expected": [
+        "R13"
+      ],
+      "fail": [],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 6.3,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D16_energy_typo",
+      "form": "pdf",
+      "desc": "Energy per 100 g typed as 438",
+      "expected": [
+        "R14",
+        "R16",
+        "R17"
+      ],
+      "fail": [
+        "R14",
+        "R16",
+        "R17"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D16_energy_typo",
+      "form": "png",
+      "desc": "Energy per 100 g typed as 438",
+      "expected": [
+        "R14",
+        "R16",
+        "R17"
+      ],
+      "fail": [
+        "R14",
+        "R16",
+        "R17"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R26"
+      ],
+      "seconds": 2.7,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D16_energy_typo",
+      "form": "photo",
+      "desc": "Energy per 100 g typed as 438",
+      "expected": [
+        "R14",
+        "R16",
+        "R17"
+      ],
+      "fail": [
+        "R14",
+        "R16",
+        "R17"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R26"
+      ],
+      "seconds": 6.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D17_sugar_exceeds_carbs",
+      "form": "pdf",
+      "desc": "Total sugars greater than carbohydrate",
+      "expected": [
+        "R15",
+        "R17"
+      ],
+      "fail": [
+        "R15",
+        "R17"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D17_sugar_exceeds_carbs",
+      "form": "png",
+      "desc": "Total sugars greater than carbohydrate",
+      "expected": [
+        "R15",
+        "R17"
+      ],
+      "fail": [
+        "R15",
+        "R17"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R26"
+      ],
+      "seconds": 2.6,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D17_sugar_exceeds_carbs",
+      "form": "photo",
+      "desc": "Total sugars greater than carbohydrate",
+      "expected": [
+        "R15",
+        "R17"
+      ],
+      "fail": [
+        "R15",
+        "R17"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R26"
+      ],
+      "seconds": 6.1,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D18_per_serve_wrong",
+      "form": "pdf",
+      "desc": "Per-serve fat inconsistent",
+      "expected": [
+        "R16",
+        "R18"
+      ],
+      "fail": [
+        "R16",
+        "R18"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D18_per_serve_wrong",
+      "form": "png",
+      "desc": "Per-serve fat inconsistent",
+      "expected": [
+        "R16",
+        "R18"
+      ],
+      "fail": [
+        "R16",
+        "R18"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 2.6,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D18_per_serve_wrong",
+      "form": "photo",
+      "desc": "Per-serve fat inconsistent",
+      "expected": [
+        "R16",
+        "R18"
+      ],
+      "fail": [
+        "R16",
+        "R18"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24",
+        "R26"
+      ],
+      "seconds": 6.7,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D19_false_low_fat_claim",
+      "form": "pdf",
+      "desc": "'Low fat' claim with 21 g fat",
+      "expected": [
+        "R19"
+      ],
+      "fail": [
+        "R19"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D19_false_low_fat_claim",
+      "form": "png",
+      "desc": "'Low fat' claim with 21 g fat",
+      "expected": [
+        "R19"
+      ],
+      "fail": [
+        "R19"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D19_false_low_fat_claim",
+      "form": "photo",
+      "desc": "'Low fat' claim with 21 g fat",
+      "expected": [
+        "R19"
+      ],
+      "fail": [
+        "R19"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 8.0,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D20_false_high_protein_claim",
+      "form": "pdf",
+      "desc": "'High protein' claim not supported",
+      "expected": [
+        "R19"
+      ],
+      "fail": [
+        "R19"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D20_false_high_protein_claim",
+      "form": "png",
+      "desc": "'High protein' claim not supported",
+      "expected": [
+        "R19"
+      ],
+      "fail": [
+        "R19"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 2.8,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D20_false_high_protein_claim",
+      "form": "photo",
+      "desc": "'High protein' claim not supported",
+      "expected": [
+        "R19"
+      ],
+      "fail": [
+        "R19"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 7.0,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D21_prohibited_term",
+      "form": "pdf",
+      "desc": "Prohibited marketing term",
+      "expected": [
+        "R25"
+      ],
+      "fail": [
+        "R25"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D21_prohibited_term",
+      "form": "png",
+      "desc": "Prohibited marketing term",
+      "expected": [
+        "R25"
+      ],
+      "fail": [
+        "R25"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 3.1,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D21_prohibited_term",
+      "form": "photo",
+      "desc": "Prohibited marketing term",
+      "expected": [
+        "R25"
+      ],
+      "fail": [
+        "R25"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24",
+        "R26"
+      ],
+      "seconds": 6.8,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D22_date_coding_missing",
+      "form": "pdf",
+      "desc": "Batch / date-of-manufacture / use-by line missing",
+      "expected": [
+        "R20",
+        "R21"
+      ],
+      "fail": [
+        "R20",
+        "R21"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D22_date_coding_missing",
+      "form": "png",
+      "desc": "Batch / date-of-manufacture / use-by line missing",
+      "expected": [
+        "R20",
+        "R21"
+      ],
+      "fail": [
+        "R20",
+        "R21"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 8.7,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D22_date_coding_missing",
+      "form": "photo",
+      "desc": "Batch / date-of-manufacture / use-by line missing",
+      "expected": [
+        "R20",
+        "R21"
+      ],
+      "fail": [
+        "R20",
+        "R21"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24",
+        "R26"
+      ],
+      "seconds": 12.6,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D23_manufacturer_missing",
+      "form": "pdf",
+      "desc": "Manufacturer name/address missing",
+      "expected": [
+        "R22"
+      ],
+      "fail": [
+        "R22"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D23_manufacturer_missing",
+      "form": "png",
+      "desc": "Manufacturer name/address missing",
+      "expected": [
+        "R22"
+      ],
+      "fail": [],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R22",
+        "R26"
+      ],
+      "seconds": 7.4,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D23_manufacturer_missing",
+      "form": "photo",
+      "desc": "Manufacturer name/address missing",
+      "expected": [
+        "R22"
+      ],
+      "fail": [
+        "R22"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 11.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D24_customer_care_missing",
+      "form": "pdf",
+      "desc": "Consumer care details missing",
+      "expected": [
+        "R23"
+      ],
+      "fail": [
+        "R23"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D24_customer_care_missing",
+      "form": "png",
+      "desc": "Consumer care details missing",
+      "expected": [
+        "R23"
+      ],
+      "fail": [
+        "R23"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 9.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D24_customer_care_missing",
+      "form": "photo",
+      "desc": "Consumer care details missing",
+      "expected": [
+        "R23"
+      ],
+      "fail": [
+        "R23"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 12.8,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D25_barcode_wrong_gtin",
+      "form": "pdf",
+      "desc": "Barcode encodes another product's GTIN",
+      "expected": [
+        "R24"
+      ],
+      "fail": [
+        "R24"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.3,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D25_barcode_wrong_gtin",
+      "form": "png",
+      "desc": "Barcode encodes another product's GTIN",
+      "expected": [
+        "R24"
+      ],
+      "fail": [
+        "R24"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 2.8,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D25_barcode_wrong_gtin",
+      "form": "photo",
+      "desc": "Barcode encodes another product's GTIN",
+      "expected": [
+        "R24"
+      ],
+      "fail": [],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R24",
+        "R26"
+      ],
+      "seconds": 6.8,
+      "caught": true,
+      "caught_fail": false,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D26_rda_wrong",
+      "form": "pdf",
+      "desc": "%RDA for sodium wrong",
+      "expected": [
+        "R18"
+      ],
+      "fail": [
+        "R18"
+      ],
+      "review": [
+        "R26"
+      ],
+      "seconds": 0.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [],
+      "missed": []
+    },
+    {
+      "id": "D26_rda_wrong",
+      "form": "png",
+      "desc": "%RDA for sodium wrong",
+      "expected": [
+        "R18"
+      ],
+      "fail": [
+        "R18"
+      ],
+      "review": [
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 2.9,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    },
+    {
+      "id": "D26_rda_wrong",
+      "form": "photo",
+      "desc": "%RDA for sodium wrong",
+      "expected": [
+        "R18"
+      ],
+      "fail": [
+        "R18"
+      ],
+      "review": [
+        "R05",
+        "R11",
+        "R13",
+        "R17",
+        "R26"
+      ],
+      "seconds": 6.2,
+      "caught": true,
+      "caught_fail": true,
+      "false_alarms": [],
+      "review_noise": [
+        "R05",
+        "R11",
+        "R13",
+        "R17"
+      ],
+      "missed": []
+    }
+  ],
+  "llm": {
+    "enabled": false,
+    "provider": null,
+    "model": null,
+    "endpoint": null,
+    "last_error": null,
+    "configured": false
+  }
+}

@@ -1,0 +1,103 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>LaunchReady architecture</title>
+<style>
+@font-face { font-family: 'Plex'; font-weight: 400; src: url('../web/fonts/ibm-plex-sans-latin-400-normal.woff2'); }
+@font-face { font-family: 'Plex'; font-weight: 500; src: url('../web/fonts/ibm-plex-sans-latin-500-normal.woff2'); }
+@font-face { font-family: 'Plex'; font-weight: 600; src: url('../web/fonts/ibm-plex-sans-latin-600-normal.woff2'); }
+@font-face { font-family: 'PlexC'; font-weight: 700; src: url('../web/fonts/ibm-plex-sans-condensed-latin-700-normal.woff2'); }
+@font-face { font-family: 'PlexC'; font-weight: 600; src: url('../web/fonts/ibm-plex-sans-condensed-latin-600-normal.woff2'); }
+:root { --ink:#1B2230; --ink2:#4A5468; --muted:#6B7385; --line:#D6DAE2; --bg:#F7F6F2; --card:#FFFFFF;
+        --accent:#E6007E; --fail:#C62828; --review:#B26A00; --pass:#2E7D32; --ai:#3949AB; --aibg:#EEF0FB; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 1600px; background: var(--bg); font-family: 'Plex', sans-serif; color: var(--ink); padding: 34px 40px; }
+h1 { font-family: 'PlexC'; font-weight: 700; font-size: 30px; letter-spacing: .2px; }
+h1 span { color: var(--accent); }
+.sub { color: var(--ink2); font-size: 16px; margin-top: 4px; }
+.flow { display: grid; grid-template-columns: 210px 24px 1fr 1fr 1fr 1fr 1fr 24px 220px; gap: 0 10px; margin-top: 26px; align-items: stretch; }
+.col h2 { font-family: 'PlexC'; font-weight: 600; font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 13px; font-size: 13.2px; line-height: 1.38; color: var(--ink2); }
+.card b { color: var(--ink); font-weight: 600; display: block; font-size: 14.5px; margin-bottom: 4px; }
+.inputs .card { margin-bottom: 10px; border-left: 4px solid var(--ink); }
+.col { display: flex; flex-direction: column; }
+.step { position: relative; border-top: 4px solid var(--ink); flex: 1; }
+.step .n { font-family: 'PlexC'; font-weight: 700; color: var(--accent); font-size: 13px; letter-spacing: 1px; }
+.step ul { padding-left: 15px; margin-top: 6px; }
+.step li { margin: 3px 0; }
+.arrow { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 22px; }
+.verdicts { display: grid; gap: 7px; margin-top: 8px; }
+.v { border-radius: 7px; padding: 6px 9px; font-size: 12.6px; color: #fff; line-height: 1.3; }
+.v b { display: inline; color: #fff; font-size: 13px; margin-right: 4px; }
+.v.fail { background: var(--fail); } .v.review { background: var(--review); } .v.pass { background: var(--pass); } .v.fut { background: #5B6475; }
+.outputs .card { margin-bottom: 10px; border-left: 4px solid var(--accent); }
+.ai { margin-top: 26px; border: 2px dashed var(--ai); background: var(--aibg); border-radius: 12px; padding: 14px 18px; display: grid; grid-template-columns: 250px repeat(5, 1fr); gap: 14px; }
+.ai .lead b { font-family: 'PlexC'; font-weight: 700; font-size: 17px; color: var(--ai); display: block; }
+.ai .lead { font-size: 13px; color: var(--ink2); line-height: 1.4; }
+.ai .g { background: #fff; border-radius: 8px; padding: 10px 11px; font-size: 12.6px; line-height: 1.36; color: var(--ink2); border: 1px solid #CDD2F0; }
+.ai .g b { display: block; color: var(--ai); font-size: 13.4px; margin-bottom: 3px; }
+.ai .g i { font-style: normal; color: var(--ink); font-weight: 500; }
+.foot { margin-top: 14px; font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; }
+.motto { font-family: 'PlexC'; font-weight: 600; color: var(--ink); font-size: 15px; }
+</style></head>
+<body>
+<h1>Launch<span>Ready</span> — how one check runs</h1>
+<p class="sub">Is this packaging artwork ready to print? Every finding is tied to a rule quote and a box on the artwork.</p>
+
+<div class="flow">
+  <div class="col inputs">
+    <h2>Inputs</h2>
+    <div class="card"><b>Artwork</b>Print-ready PDF (DeskPack / Illustrator export), flattened PNG, or a phone photo of a proof</div>
+    <div class="card"><b>Rulebook</b>Company rule cards (Markdown) or free text: regulation extracts, PDF, Word</div>
+    <div class="card"><b>Approved data</b>Content sheet / product spec: Excel, CSV, JSON, PDF, Word</div>
+  </div>
+  <div class="arrow">→</div>
+
+  <div class="col"><h2>1 · Read</h2><div class="card step"><span class="n">VECTOR + VISION</span>
+    <ul><li><b style="display:inline;font-size:13px">PDF text layer:</b> exact words, fonts, sizes, positions (PyMuPDF)</li>
+    <li>Paint-order test finds text hidden under artwork</li>
+    <li>Raster: deskew, neural OCR (PP-OCR via RapidOCR / ONNX), second pass on uncertain words</li>
+    <li>Dieline → panels, front panel found; barcodes (zxing-cpp); veg / symbols (OpenCV); glyph heights in mm</li></ul></div></div>
+
+  <div class="col"><h2>2 · Understand</h2><div class="card step"><span class="n">FACTS WITH SOURCES</span>
+    <ul><li>Statement of identity, net quantity, ingredients, allergens, nutrition panel (US or India), claims, address, barcode…</li>
+    <li>Every fact keeps the IDs of the text lines it came from</li>
+    <li>Content sheet normalised into approved fields; its own gaps and contradictions are reported</li></ul></div></div>
+
+  <div class="col"><h2>3 · Rules</h2><div class="card step"><span class="n">RULE CARDS</span>
+    <ul><li>Each rule = quote + source + one of 24 check types + severity + why it matters</li>
+    <li>Free-text rulebooks compiled into cards (LLM, or offline pattern compiler)</li>
+    <li>Effective dates: in force, upcoming, proposed</li>
+    <li>User can switch rules off and re-run instantly</li></ul></div></div>
+
+  <div class="col"><h2>4 · Check</h2><div class="card step"><span class="n">DETERMINISTIC CODE</span>
+    <ul><li>Presence and placement (front panel)</li><li>Text = approved copy, word diff</li>
+    <li>Nutrition arithmetic, %DV, physical plausibility</li><li>Claims vs nutrients and ingredients (vegan + honey)</li>
+    <li>Allergen coverage, barcode GS1, text height, cross-panel consistency</li></ul></div></div>
+
+  <div class="col"><h2>5 · Verify &amp; decide</h2><div class="card step"><span class="n">AVOID FALSE ALARMS</span>
+    <div class="verdicts">
+      <div class="v fail"><b>FAIL</b>code proved it on a confident read</div>
+      <div class="v review"><b>REVIEW</b>uncertain read, judgment, or AI-only</div>
+      <div class="v pass"><b>PASS</b>with the evidence that satisfied it</div>
+      <div class="v fut"><b>COMING</b>rule not yet in force on the date</div>
+    </div>
+    <ul><li>"Missing" is re-checked before it is reported</li></ul></div></div>
+  <div class="arrow">→</div>
+
+  <div class="col outputs">
+    <h2>Outputs</h2>
+    <div class="card"><b>Review screen</b>Verdict, findings by severity, evidence boxes on the artwork, click to zoom, rule quote, expected vs found</div>
+    <div class="card"><b>Ask about a finding</b>Follow-up questions answered from that finding's evidence</div>
+    <div class="card"><b>Report</b>Printable HTML/PDF with evidence crops, plus JSON</div>
+  </div>
+</div>
+
+<div class="ai">
+  <div class="lead"><b>Optional AI layer</b>Gemini / Vertex AI, Claude or GPT. Every AI output is a <i style="font-style:normal;font-weight:600;color:#1B2230">proposal that code verifies</i>. An AI alone can never mark a rule as failed.</div>
+  <div class="g"><b>Compile rules</b>Turns free-text regulations into rule cards. <i>Each quote must exist in the source</i> or the card is dropped.</div>
+  <div class="g"><b>Second reader</b>Reads photos alongside OCR. <i>Must cite OCR line IDs</i>; disagreement sends the item to review.</div>
+  <div class="g"><b>Judgment rules</b>"Does the imagery mislead?" <i>Can pass or flag for review, never fail.</i></div>
+  <div class="g"><b>Confirm "missing"</b>Second look before an absence is reported on raster artwork.</div>
+  <div class="g"><b>Answer questions</b>Grounded only in the finding, its rule quote and its evidence lines.</div>
+</div>
+<div class="foot"><span class="motto">AI reads · code checks · people decide</span><span>Python · FastAPI · PyMuPDF · RapidOCR (PP-OCR, ONNX) · OpenCV · zxing-cpp · plain JS front end</span></div>
+</body></html>

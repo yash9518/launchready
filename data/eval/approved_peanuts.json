@@ -1,0 +1,33 @@
+{
+  "sku": "SF-PNUT-RS-150",
+  "product_name": "Roasted Salted Peanuts",
+  "brand": "Sunfield",
+  "net_quantity": "150 g",
+  "mrp": 45.0,
+  "fssai_license": "10024011000123",
+  "gtin": "2001234567961",
+  "veg": true,
+  "ingredients": "Peanuts (93%), Edible Vegetable Oil (Groundnut), Iodised Salt",
+  "allergens": [
+    "peanut"
+  ],
+  "serving_size_g": 25,
+  "nutrition_per_100g": {
+    "energy_kcal": 609,
+    "protein_g": 26.0,
+    "carbohydrate_g": 16.0,
+    "total_sugars_g": 4.2,
+    "added_sugars_g": 0.0,
+    "total_fat_g": 49.0,
+    "saturated_fat_g": 7.5,
+    "trans_fat_g": 0.0,
+    "cholesterol_mg": 0,
+    "sodium_mg": 420
+  },
+  "approved_claims": [
+    "Source Of Protein",
+    "No Added Sugar"
+  ],
+  "manufacturer": "Sunfield Foods Pvt. Ltd., Plot 42, KIADB Industrial Area, Baikampady, Mangaluru 575011, Karnataka, India.",
+  "customer_care": "1800-123-4567 | care@sunfieldfoods.example"
+}

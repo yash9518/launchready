@@ -1,0 +1,57 @@
+[
+  {
+    "id": "esko_granola",
+    "title": "Esko sample — Dancing Fish Granola, US carton",
+    "description": "Esko's sample dieline proof (DeskPack PDF) checked against Esko's US content sheet and an FDA-based rulebook.",
+    "artwork": "DancingFish_Granola_Berry_US_Carton_24def4e1.pdf",
+    "approved": "DancingFish_Granola_BerryCrunch_US_Content_Sheet_32057df9.xlsx",
+    "rulebook": "us_fda_granola_rulebook.md",
+    "market": "United States (FDA)",
+    "source": "Esko AIForge sample files",
+    "expected_failures": []
+  },
+  {
+    "id": "cookies_errors",
+    "title": "Cookies — artwork with errors",
+    "description": "Agency artwork v2 with five planted errors (quantity, allergen, claim, licence, energy).",
+    "artwork": "artwork.pdf",
+    "approved": "approved.json",
+    "rulebook": "sunfield_labelling_rulebook.md",
+    "expected_failures": [],
+    "market": "India (FSSAI)",
+    "source": "Synthetic test artwork (fictional brand)"
+  },
+  {
+    "id": "cookies_clean",
+    "title": "Cookies — corrected artwork",
+    "description": "The same artwork after the fixes. Should be ready to print.",
+    "artwork": "artwork.pdf",
+    "approved": "approved.json",
+    "rulebook": "sunfield_labelling_rulebook.md",
+    "expected_failures": [],
+    "market": "India (FSSAI)",
+    "source": "Synthetic test artwork (fictional brand)"
+  },
+  {
+    "id": "peanuts",
+    "title": "Peanuts — clean artwork with valid claims",
+    "description": "A second product whose 'Source of protein' and 'No added sugar' claims are genuinely supported.",
+    "artwork": "artwork.pdf",
+    "approved": "approved.json",
+    "rulebook": "sunfield_labelling_rulebook.md",
+    "expected_failures": [],
+    "market": "India (FSSAI)",
+    "source": "Synthetic test artwork (fictional brand)"
+  },
+  {
+    "id": "cookies_photo",
+    "title": "Cookies — phone photo of a printed proof",
+    "description": "Raster input: tilted, blurred, no physical scale. Shows how uncertainty is handled.",
+    "artwork": "artwork.jpg",
+    "approved": "approved.json",
+    "rulebook": "sunfield_labelling_rulebook.md",
+    "expected_failures": [],
+    "market": "India (FSSAI)",
+    "source": "Synthetic test artwork (fictional brand)"
+  }
+]

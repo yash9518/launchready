@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>LaunchReady — Esko AIForge submission</title>
+<style>
+@font-face { font-family: 'Plex'; font-weight: 400; src: url('../web/fonts/ibm-plex-sans-latin-400-normal.woff2'); }
+@font-face { font-family: 'Plex'; font-weight: 500; src: url('../web/fonts/ibm-plex-sans-latin-500-normal.woff2'); }
+@font-face { font-family: 'Plex'; font-weight: 600; src: url('../web/fonts/ibm-plex-sans-latin-600-normal.woff2'); }
+@font-face { font-family: 'PlexC'; font-weight: 700; src: url('../web/fonts/ibm-plex-sans-condensed-latin-700-normal.woff2'); }
+@font-face { font-family: 'PlexC'; font-weight: 600; src: url('../web/fonts/ibm-plex-sans-condensed-latin-600-normal.woff2'); }
+@page { size: A4; margin: 15mm 15mm 14mm; }
+:root { --ink:#1B2230; --ink2:#3E4757; --muted:#6B7385; --line:#D6DAE2; --accent:#E6007E; --fail:#C62828; --review:#B26A00; --pass:#2E7D32; --soft:#F5F4EF; }
+* { box-sizing: border-box; }
+body { font-family: 'Plex', sans-serif; color: var(--ink); font-size: 9.7pt; line-height: 1.42; margin: 0; }
+h1 { font-family: 'PlexC'; font-weight: 700; font-size: 25pt; margin: 0; letter-spacing: .2px; }
+h1 span { color: var(--accent); }
+.kicker { font-family: 'PlexC'; font-weight: 600; color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; font-size: 9pt; }
+.lede { font-size: 11pt; color: var(--ink2); margin: 6px 0 12px; }
+h2 { font-family: 'PlexC'; font-weight: 700; font-size: 13.5pt; margin: 12px 0 5px; padding-bottom: 3px; border-bottom: 2px solid var(--ink); }
+h3 { font-size: 10.8pt; margin: 10px 0 4px; }
+p { margin: 4px 0 7px; }
+ol, ul { margin: 4px 0 8px; padding-left: 18px; }
+li { margin: 2px 0; }
+table { width: 100%; border-collapse: collapse; margin: 6px 0 10px; font-size: 9.4pt; }
+th, td { text-align: left; vertical-align: top; padding: 4px 7px; border-bottom: 1px solid var(--line); }
+th { background: var(--soft); font-weight: 600; }
+td.n { text-align: center; font-weight: 600; white-space: nowrap; }
+.tag { display: inline-block; color: #fff; font-weight: 600; font-size: 8.6pt; padding: 1px 7px; border-radius: 4px; }
+.FAIL { background: var(--fail); } .REVIEW { background: var(--review); } .PASS { background: var(--pass); } .COMING { background: #5B6475; }
+.motto { font-family: 'PlexC'; font-weight: 700; font-size: 13pt; margin: 6px 0 2px; }
+.box { background: var(--soft); border-left: 4px solid var(--accent); padding: 8px 12px; border-radius: 4px; margin: 8px 0; }
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+img.arch { width: 100%; border: 1px solid var(--line); border-radius: 6px; }
+img.shot { width: 100%; height: 58mm; object-fit: cover; object-position: top left; border: 1px solid var(--line); border-radius: 6px; margin-top: 4px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.small { font-size: 8.8pt; color: var(--muted); }
+code { font-size: 9pt; background: var(--soft); padding: 0 3px; border-radius: 3px; }
+</style></head>
+<body>
+
+<section class="page">
+  <div class="kicker">Esko AIForge 2026 · Problem statement 2 — Is this packaging artwork ready to launch?</div>
+  <h1>Launch<span>Ready</span></h1>
+  <p class="lede">An AI-powered checker that reviews packaging artwork against a rulebook and the approved product data. It says what is definitely wrong, what needs a person, and what passed. Every finding has its rule quote and its evidence on the artwork.</p>
+  <p class="motto">AI reads · code checks · people decide</p>
+
+  <h2>1. The problem</h2>
+  <p>Before final artwork goes to print, someone must confirm that every required element is present and correctly placed, that the text and numbers match the approved content sheet, that claims are true for the recipe, and that the nutrition panel adds up. Today this means proofreading a PDF, a spreadsheet and a rulebook by hand. The costly errors are <b>cross-document</b>: a claim contradicted by an ingredient, a value that differs from the content sheet, an allergen missing from the "Contains" line. Reprints and recalls are expensive. A checker that raises false alarms gets ignored, so <b>avoiding false alarms matters as much as catching errors</b>.</p>
+
+  <h2>2. Our approach</h2>
+  <ol>
+    <li><b>Read the artwork exactly.</b> From a print PDF's text layer we take the real words, fonts, sizes and positions, so there is no OCR guessing. We find the dieline panels and the principal display panel, measure character heights in mm, decode barcodes, and detect text painted over by other artwork. Photos and scans go through neural OCR with a second reading of uncertain words.</li>
+    <li><b>Turn text into facts with sources.</b> Identity, net quantity, ingredients, allergens, Nutrition Facts / nutrition table, claims, address and barcode. Each fact keeps the IDs of the lines it came from.</li>
+    <li><b>Turn the rulebook into rule cards.</b> Each card has a verbatim quote, a source, a severity, "why it matters", an optional effective date, and one of <b>24 deterministic check types</b>. Free-text regulations are compiled by an LLM, and every quote must be found in the source.</li>
+    <li><b>Check with code, verify before alarming.</b> Presence and placement, word-for-word copy, nutrition arithmetic and %DV, claims against nutrients and ingredients, allergen coverage, GS1 check digits and text height. Anything reported "missing" gets a second look first.</li>
+    <li><b>Decide with an explicit policy.</b> AI alone can never fail a rule.</li>
+  </ol>
+  <table>
+    <tr><th style="width:18%">Verdict</th><th>When</th></tr>
+    <tr><td><span class="tag FAIL">FAIL</span> must fix</td><td>Deterministic code found a violation on a confident reading</td></tr>
+    <tr><td><span class="tag REVIEW">REVIEW</span> needs a person</td><td>Uncertain reading, a judgment rule, or only an AI flagged it</td></tr>
+    <tr><td><span class="tag PASS">PASS</span></td><td>Satisfied; the evidence that satisfied the rule is shown</td></tr>
+    <tr><td><span class="tag COMING">COMING</span></td><td>Rule not in force on the check date (upcoming company rule, proposed regulation)</td></tr>
+  </table>
+
+  <img class="shot" src="screenshot_finding.png" alt="LaunchReady review screen" style="height:52mm">
+</section>
+
+<section class="page">
+  <h2 style="margin-top:0">3. Architecture</h2>
+  <img class="arch" src="architecture.png" alt="Architecture diagram">
+
+  <h2>4. AI models and technologies</h2>
+  <table>
+    <tr><th style="width:17%">Part</th><th style="width:38%">Technology</th><th>Why it is used</th></tr>
+    <tr><td>Vector text</td><td>PyMuPDF text layer: words, fonts, sizes, positions, paint order</td><td>Exact reading of print files; finds hidden text</td></tr>
+    <tr><td>Raster text</td><td>RapidOCR: PaddleOCR PP-OCRv3 detection and recognition networks on ONNX Runtime (CPU, offline)</td><td>Photos, scans and outlined fonts; tiled for small print; second pass on uncertain words</td></tr>
+    <tr><td>Vision</td><td>OpenCV (panels, symbols, glyph height in mm), zxing-cpp (barcodes) and a GS1 check-digit verifier</td><td>Placement and minimum-height rules need geometry, not words</td></tr>
+    <tr><td>LLM (optional)</td><td>Google Gemini (Gemini API or Vertex AI express key); Claude or GPT also supported</td><td>Compiles free-text rulebooks, second reader for photos, judgment rules, confirms "missing" items, answers follow-up questions</td></tr>
+    <tr><td>Matching</td><td>RapidFuzz, word-level diffs</td><td>Near-miss search before "missing"; readable expected-vs-found</td></tr>
+    <tr><td>App</td><td>FastAPI, plain-JS single-page UI, printable HTML report, JSON export</td><td>Runs on a laptop with one command; no GPU needed</td></tr>
+  </table>
+  <div class="box"><b>How AI output is kept honest.</b> The rule compiler may only choose from the fixed check catalogue, and each quote must be found in the source or the card is dropped. The second reader must cite OCR line IDs; disagreement sends the item to review. Judgment rules can pass or be flagged for review, never fail. Follow-up answers use only the finding's rule quote and evidence. Every AI action is logged in the UI as accepted, rejected or downgraded, and responses are cached so results can be reproduced. Without an API key every deterministic check still runs, and judgment rules go to a person.</div>
+</section>
+
+<section class="page">
+  <h2 style="margin-top:0">5. Result on Esko's sample carton</h2>
+  <p>Dancing Fish Granola US carton (DeskPack PDF) + Esko's US content sheet (Excel) + a 31-rule US rulebook (FDA 21 CFR 101, FALCPA and USDA organic rules, plus company standards). <b>Not ready to print: 18 must fix, 4 need a person, 7 passed, 2 coming</b>, in about 10 seconds.</p>
+  <ul>
+    <li>"Suitable for Vegans" and a Certified Vegan mark, but <b>honey</b> in the ingredients. "No added sugar", but honey, coconut sugar and cane sugar.</li>
+    <li>Almonds, pecans and walnuts in the ingredients, but no <b>"Contains:"</b> statement, only "may contain" advisory text.</li>
+    <li>166 kcal declared vs about 535 kcal from the macros; 10 wrong %DVs; carbohydrate 66 g on the label vs 15 g in the content sheet.</li>
+    <li>Net weight only on the back panel, with no "Net Wt" term and no oz. Organic claim without a certifier. Address without city, state or ZIP.</li>
+    <li>19 lines of an old nutrition table <b>hidden under the artwork</b> in the print file (sent to review).</li>
+    <li>The content sheet's own errors: its sugars exceed its carbohydrate, and its calories don't match its own macros.</li>
+  </ul>
+  <h2>6. Evaluation: 84 artworks with known errors</h2>
+  <p>We generated 26 single-error variants and 2 clean versions of a fictional product. Each was tested as a print PDF, a 200-dpi PNG and a simulated phone photo (tilted, blurred, noisy, no scale). Ground truth is known for every file.</p>
+  <table>
+    <tr><th>Input</th><th>Errors flagged</th><th>As a definite FAIL</th><th>False alarms</th><th>"Needs a person" per file</th><th>Time per file</th></tr>
+    <tr><td>Print PDF</td><td class="n">26 / 26</td><td class="n">26 / 26</td><td class="n">0</td><td class="n">0.0</td><td class="n">0.3 s</td></tr>
+    <tr><td>PNG, 200 dpi</td><td class="n">26 / 26</td><td class="n">20 / 26</td><td class="n">0</td><td class="n">2.8</td><td class="n">4.3 s</td></tr>
+    <tr><td>Phone-style photo</td><td class="n">26 / 26</td><td class="n">21 / 26</td><td class="n">0</td><td class="n">3.9</td><td class="n">8.1 s</td></tr>
+  </table>
+  <p class="small">On images, some failures become reviews by design: when a reading can't be confirmed (bold type, mm heights without scale, look-alike characters), a person decides. 23 automated tests also cover units, AI guardrails, the samples end to end and the HTTP API.</p>
+
+  <h2>7. What makes it trustworthy</h2>
+  <div class="cols">
+    <ul>
+      <li><b>Evidence:</b> every finding draws a box on the artwork and quotes its rule, source and "why it matters".</li>
+      <li><b>Uncertainty:</b> reading confidence on every finding; review instead of guessing.</li>
+      <li><b>Verify before alarm:</b> near-miss search and re-scans before anything is reported missing.</li>
+    </ul>
+    <ul>
+      <li><b>Traceability:</b> "What was read" and "How it was checked" show every fact's source and every AI action.</li>
+      <li><b>Effective dates:</b> check against the rules in force on any date; proposed rules are shown, not enforced.</li>
+      <li><b>Source data checked too:</b> contradictions inside the content sheet are reported.</li>
+    </ul>
+  </div>
+
+  <h2>8. Run it</h2>
+  <p>Python 3.10+. <code>run.sh</code> (macOS / Linux) or <code>run.bat</code> (Windows) creates a virtual environment and starts the app at <code>http://localhost:8000</code>. Optional AI: copy <code>.env.example</code> to <code>.env</code>, add <code>GEMINI_API_KEY</code>, and check it with <code>python tools/check_ai.py</code>. Tests: <code>python -m pytest -q</code>. Evaluation: <code>python tools/evaluate.py</code>.</p>
+  <p class="small">Limitations: the rulebooks are illustrative interpretations written for this demo, not legal advice. Fact extractors cover food labels (US, India); other categories need new extractors on the same engine. Next steps: diff against the previously approved artwork, multi-language panels, and running inside WebCenter on artwork upload.</p>
+</section>
+</body></html>

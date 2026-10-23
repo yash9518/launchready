@@ -1,0 +1,34 @@
+{
+  "sku": "SF-COOK-OAT-200",
+  "product_name": "Crunchy Oat Cookies",
+  "brand": "Sunfield",
+  "net_quantity": "200 g",
+  "mrp": 60.0,
+  "fssai_license": "10024011000123",
+  "gtin": "2001234567893",
+  "veg": true,
+  "ingredients": "Whole Wheat Flour (Atta) (38%), Sugar, Edible Vegetable Oil (Palm), Rolled Oats (12%), Invert Syrup, Milk Solids, Raising Agents [INS 500(ii), INS 503(ii)], Iodised Salt, Emulsifier [INS 322(i) (Soy Lecithin)], Artificial Flavouring Substances (Vanilla)",
+  "allergens": [
+    "gluten",
+    "milk",
+    "soy"
+  ],
+  "serving_size_g": 30,
+  "nutrition_per_100g": {
+    "energy_kcal": 483,
+    "protein_g": 7.4,
+    "carbohydrate_g": 66.0,
+    "total_sugars_g": 24.0,
+    "added_sugars_g": 21.5,
+    "total_fat_g": 21.0,
+    "saturated_fat_g": 10.2,
+    "trans_fat_g": 0.1,
+    "cholesterol_mg": 0,
+    "sodium_mg": 310
+  },
+  "approved_claims": [
+    "Baked, Not Fried"
+  ],
+  "manufacturer": "Sunfield Foods Pvt. Ltd., Plot 42, KIADB Industrial Area, Baikampady, Mangaluru 575011, Karnataka, India.",
+  "customer_care": "1800-123-4567 | care@sunfieldfoods.example"
+}
