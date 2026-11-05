@@ -160,10 +160,10 @@ Both `AIza…` Gemini API keys and `AQ.…` Vertex AI express keys are supported
 `OPENAI_API_KEY` also work. Run `python tools/check_ai.py` to confirm the key works, then restart the
 app. The header pill shows "AI assist on".
 
-**Host it online (Hugging Face Spaces, free):** the repo includes a `Dockerfile` and a GitHub Action
-(`.github/workflows/deploy-hf-space.yml`) that deploys every push to `main`. Create a Docker Space, then add
-a GitHub secret `HF_TOKEN` (Hugging Face write token) and a variable `HF_SPACE` (`username/space-name`).
-To switch AI assist on in the hosted app, add `GEMINI_API_KEY` as a secret in the Space settings.
+**Host it online (Google Cloud Run):** the repo includes a `Dockerfile` (it listens on `$PORT`).
+In Cloud Run choose *Continuously deploy from a repository*, pick this repo with build type *Dockerfile*,
+and give the service **2 GiB** of memory (OCR on photos peaks at about 750 MB). To switch AI assist on,
+add `GEMINI_API_KEY` as an environment variable or secret on the service.
 
 **Tests and evaluation:**
 

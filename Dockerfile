@@ -1,4 +1,4 @@
-# LaunchReady — container image for hosting (Hugging Face Spaces, Render, Railway, any Docker host).
+# LaunchReady — container image for hosting (Google Cloud Run or any Docker host). Listens on $PORT.
 FROM python:3.13-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
