@@ -1,0 +1,57 @@
+# Deploys LaunchReady to a Hugging Face Space (Docker) on every push to main.
+# Setup (once): add a repository secret HF_TOKEN (a Hugging Face token with "write" access)
+# and a repository variable HF_SPACE (e.g. your-hf-username/launchready).
+name: Deploy to Hugging Face Space
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Push a clean snapshot to the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE: ${{ vars.HF_SPACE }}
+        run: |
+          set -e
+          if [ -z "$HF_TOKEN" ] || [ -z "$HF_SPACE" ]; then
+            echo "HF_TOKEN secret or HF_SPACE variable is not set; skipping deploy."
+            exit 0
+          fi
+          HF_USER="${HF_SPACE%%/*}"
+
+          # Screenshots are only for the GitHub README; the app doesn't need them.
+          rm -rf .git .github docs/*.png
+
+          # Space settings live in the README front matter on Hugging Face only.
+          { cat <<'EOF'
+          ---
+          title: LaunchReady
+          emoji: 📦
+          colorFrom: green
+          colorTo: gray
+          sdk: docker
+          app_port: 7860
+          pinned: false
+          short_description: Checks packaging artwork against rules before print
+          ---
+
+          EOF
+            cat README.md; } > README.hf.md
+          mv README.hf.md README.md
+
+          git init -q -b main
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git lfs install --local
+          # Hugging Face only accepts binary files through LFS.
+          git lfs track "*.pdf" "*.png" "*.jpg" "*.jpeg" "*.xlsx" "*.woff2" "*.docx"
+          git add -A
+          git commit -q -m "Deploy ${GITHUB_SHA::7}"
+          git push --force "https://${HF_USER}:${HF_TOKEN}@huggingface.co/spaces/${HF_SPACE}" main
