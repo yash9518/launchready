@@ -160,6 +160,11 @@ Both `AIza…` Gemini API keys and `AQ.…` Vertex AI express keys are supported
 `OPENAI_API_KEY` also work. Run `python tools/check_ai.py` to confirm the key works, then restart the
 app. The header pill shows "AI assist on".
 
+**Host it online (Google Cloud Run):** the repo includes a `Dockerfile` (it listens on `$PORT`).
+In Cloud Run choose *Continuously deploy from a repository*, pick this repo with build type *Dockerfile*,
+and give the service **2 GiB** of memory (OCR on photos peaks at about 750 MB). To switch AI assist on,
+add `GEMINI_API_KEY` as an environment variable or secret on the service.
+
 **Tests and evaluation:**
 
 ```bash
